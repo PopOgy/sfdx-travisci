@@ -1,12 +1,10 @@
-os: osx
-language: node_js
-node_js:
-  - "8"
-cache: false
+#Gives permission to install Salesforce CLI
+sudo: true
+
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 before_install:
-- npm i -g sfdx-cli
+#Decrypt server key
 - openssl aes-256-cbc -K $encrypted_79a2f6093848_key -iv $encrypted_79a2f6093848_iv
   -in assets/server.key.enc -out assets/server.key -d
 - export SFDX_AUTOUPDATE_DISABLE=false
@@ -16,7 +14,9 @@ before_install:
 - export SFDX_LOG_LEVEL=DEBUG
 - mkdir sfdx
 - wget -qO- $URL | tar xJ -C sfdx --strip-components 1
+#Create sfdx directory
 - "./sfdx/install"
+#Install Salesforce CLI
 - export PATH=./sfdx/$(pwd):$PATH
 - sfdx --version
 - sfdx plugins --core
