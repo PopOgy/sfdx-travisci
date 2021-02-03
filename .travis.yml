@@ -1,10 +1,13 @@
 
-os: trusty
-dist: trusty
+os: windows
+language: node_js
+node_js:
+  - "8"
 cache: false
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 before_install:
+- npm i -g sfdx-cli
 - openssl aes-256-cbc -K $encrypted_79a2f6093848_key -iv $encrypted_79a2f6093848_iv
   -in assets/server.key.enc -out assets/server.key -d
 - export SFDX_AUTOUPDATE_DISABLE=false
