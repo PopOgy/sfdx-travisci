@@ -2,10 +2,6 @@
 arch: amd64          # optional, this is default, routes to a full VM
 os: linux            # optional, this is default
 dist: focal          # or bionic | xenial | trusty | precise with xenial as default
-language: node_js
-node_js:
-  - "8"
-cache: false
 env:
 - URL=https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
 before_install:
