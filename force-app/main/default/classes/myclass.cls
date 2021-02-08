@@ -1,7 +1,7 @@
 public with sharing class myclass {
 	public myclass() {
 
-		String someString = 'test';
+		String someString = 'test branch';
 	}
 
 	public String getAppVersion() {
